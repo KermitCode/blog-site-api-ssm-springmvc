@@ -6,7 +6,7 @@
 * 4：文章分类接口
 * 5：评论列表接口
 
-  之前使用java servlet开发过一个，GITHUB地址：https://github.com/KermitCode/bolg-article-api-java-study ，这次是进行重新开发。代码不多，但基本包括了Spring SpringMVC, Mybatis开发要掌握的技能。
+  之前使用java servlet开发过一个，GITHUB地址：https://github.com/KermitCode/bolg-article-api-java-study ，这次是进行重新开发。代码不多，但基本包括了Spring SpringMVC, Mybatis开发要掌握的技能。接口列表页地址：http://api.04007.cn 所有接口都可以线上请求。
 ### 代码目录结构图如下：
 ![代码目录结构图](https://raw.githubusercontent.com/KermitCode/bolg-article-api-java-study/master/project-structer.PNG)
 ### 项目首页，即接口列表页截图如下：
