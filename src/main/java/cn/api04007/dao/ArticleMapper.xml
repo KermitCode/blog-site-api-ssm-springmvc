@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.api04007.dao.ArticleMapper">
+
+    <!--查询文章，可能不传文章分类ID就查询所有的文章-->
+    <select id="getArticleList" resultType="Article" parameterType="Map">
+        select * from ke_article
+        <where>
+            <if test="cateId != 0 and cateId != null">
+                ar_cid = #{cateId}
+            </if>
+        </where>
+        order by id desc limit #{start}, #{pageSize}
+    </select>
+
+    <!--查询文章详情，同时使用多对一关联-->
+    <select id="getArticleDetail" resultMap="ArticleClass">
+        select ke_article.*,
+               ke_class.id as cid,
+               ke_class.class_name,
+               ke_class.class_fname
+        from ke_article left join ke_class
+        on ke_article.ar_cid = ke_class.id
+        where ke_article.id= #{id}
+    </select>
+
+    <!--已经开启了数据库的下划线和pojo属性驼峰的自动映射，但发现加了association未生效，这里手动关联了一下-->
+    <resultMap id="ArticleClass" type="Article" >
+        <result property="id" column="id"/>
+        <result property="arCid" column="ar_cid"/>
+        <result property="arTitle" column="ar_title"/>
+        <result property="arTags" column="ar_tags"/>
+        <result property="arTime" column="ar_time"/>
+        <result property="arText" column="ar_text"/>
+        <result property="arView" column="ar_view"/>
+        <result property="arComments" column="ar_comments"/>
+
+        <result property="" column=""/>
+
+        <!--将文章的类目属性和类别实体类关联-->
+        <association property="arCate" javaType="Category">
+            <result property="id" column="cid"/>
+            <result property="className" column="class_name"/>
+            <result property="classFname" column="class_fname"/>
+        </association>
+    </resultMap>
+
+</mapper>

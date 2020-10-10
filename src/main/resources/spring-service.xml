@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       https://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:component-scan base-package="cn.api04007.services" />
+
+    <!--注入service到容器：采用包扫描不用手动注入-->
+<!--    <bean id="categoryServiceImpl" class="cn.api04007.services.CategoryServiceImpl">-->
+<!--        <property name="CategoryMapper" ref="categoryMapper"/>-->
+<!--    </bean>-->
+<!--    <bean id="commentServiceImpl" class="cn.api04007.services.CommentServiceImpl">-->
+<!--        <property name="CommentMapper" ref="commentMapper"/>-->
+<!--    </bean>-->
+<!--    <bean id="articleServiceImpl" class="cn.api04007.services.ArticleServiceImpl">-->
+<!--        <property name="ArticleMapper" ref="articleMapper" />-->
+<!--    </bean>-->
+
+    <!--声明式事务提交-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 使用列标签替换列别名 默认:true -->
+        <setting name="useColumnLabel" value="true" />
+    </settings>
+
+    <typeAliases>
+        <package name="cn.api04007.pojo"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper class="cn.api04007.dao.CategoryMapper" />
+        <mapper class="cn.api04007.dao.CommentMapper" />
+        <mapper class="cn.api04007.dao.ArticleMapper" />
+    </mappers>
+
+</configuration>
