@@ -20,10 +20,13 @@
         <property name="user" value="${jdbc.username}" />
         <property name="password" value="${jdbc.password}"/>
 
-        <property name="maxPoolSize" value="10" />
+        <property name="maxPoolSize" value="50" />
         <property name="minPoolSize" value="5" />
         <property name="checkoutTimeout" value="5000" />
-        <property name="acquireRetryAttempts" value="2" />
+        <property name="acquireRetryAttempts" value="5" />
+
+        <property name="acquireIncrement" value="5" />
+        <property name="maxIdleTime" value="900" />
 
     </bean>
 
