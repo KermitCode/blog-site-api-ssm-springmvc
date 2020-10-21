@@ -24,9 +24,11 @@
         <property name="minPoolSize" value="5" />
         <property name="checkoutTimeout" value="5000" />
         <property name="acquireRetryAttempts" value="5" />
-
         <property name="acquireIncrement" value="5" />
+
         <property name="maxIdleTime" value="900" />
+        <property name="testConnectionOnCheckin" value="true" />
+        <property name="idleConnectionTestPeriod" value="60" />
 
     </bean>
 
